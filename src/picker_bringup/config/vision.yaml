@@ -1,0 +1,33 @@
+# 비전 설정 (담당: 이준희)
+
+# RealSense 드라이버 버전에 따라 토픽 이름이 다름 → `ros2 topic list` 로 확인 후 수정
+topics:
+  color: /camera/camera/color/image_raw
+  depth: /camera/camera/aligned_depth_to_color/image_raw
+  camera_info: /camera/camera/color/camera_info
+
+rate_hz: 5.0
+
+# 작업대 영역만 보기 [x0, y0, x1, y1] (픽셀). 박스가 영역 밖에 있어야 넣은 큐브가 다시 검출되지 않음
+roi: [80, 40, 560, 440]
+
+min_area_px: 400      # 이보다 작으면 노이즈
+max_area_px: 6000     # 이보다 크면 같은 색 큐브 여러 개가 붙은 것으로 판단 (신뢰도 낮춤)
+cube_size_mm: 50.0
+
+# 로봇 base 기준 큐브 윗면 높이. 이와 다르면 'unknown' (큐브가 아니거나 쌓여 있음)
+expected_top_z_mm: 50.0
+top_z_tolerance_mm: 15.0
+
+# HSV 범위 [[H, S, V 하한], [H, S, V 상한]]. OpenCV 기준 H: 0~179
+# 조명이 바뀌면 여기만 조정하면 됨. 빨강은 H가 0과 180 양쪽에 걸쳐 범위가 2개
+colors:
+  red:
+    - [[0, 120, 70], [8, 255, 255]]
+    - [[170, 120, 70], [179, 255, 255]]
+  yellow:
+    - [[20, 100, 100], [35, 255, 255]]
+  green:
+    - [[40, 80, 50], [85, 255, 255]]
+  blue:
+    - [[95, 120, 50], [130, 255, 255]]

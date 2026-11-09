@@ -1,0 +1,17 @@
+# ---- Goal: 어디서 집어서 어디에 놓을지 (로봇 base 기준, mm) ----
+float64 x_mm
+float64 y_mm
+float64 z_mm
+float64 yaw_deg
+string place_box_id
+---
+# ---- Result ----
+uint8 SUCCESS=0
+uint8 GRASP_FAIL=1
+uint8 MOTION_ERROR=2
+uint8 result
+string message
+float64 elapsed_sec
+---
+# ---- Feedback: 현재 단계 (APPROACH / DESCEND / GRASP / LIFT / PLACE / RETURN) ----
+string stage

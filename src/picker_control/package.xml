@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>picker_control</name>
+  <version>0.1.0</version>
+  <description>E0509 + RH-P12-RN-A 픽앤플레이스 제어</description>
+  <maintainer email="todo@example.com">류창표</maintainer>
+  <license>MIT</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>picker_interfaces</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <!-- 실제 로봇(robot_mode:=dsr)에서만 필요: doosan-robot2의 dsr_msgs2 -->
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

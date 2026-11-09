@@ -1,0 +1,11 @@
+# 시연용 주문. priority: URGENT(긴급·당일배송) / NORMAL(일반)
+# box는 poses.yaml의 boxes 키와 같아야 함
+orders:
+  - id: 1
+    priority: URGENT
+    box: A
+    items: {red: 2, blue: 1}
+  - id: 2
+    priority: NORMAL
+    box: B
+    items: {green: 2, yellow: 1}
